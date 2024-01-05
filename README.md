@@ -21,5 +21,6 @@ Install the dependencies and devDependencies and start the server.
 
 ```sh
 npm install
+npx tailwindcss init -p
 npm run dev
 ```
