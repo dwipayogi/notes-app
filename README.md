@@ -1,4 +1,3 @@
-=======
 # Notes App
 Note App is a web application that you can use to keep your daily notes
 
