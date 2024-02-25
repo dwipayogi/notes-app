@@ -2,8 +2,9 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { getData } from "./utils/data";
 
-import Beranda from "./components/Beranda";
-import TambahCatatan from "./components/TambahCatatan";
+import Home from "./components/Home";
+import Notes from "./components/Notes";
+import AddNote from "./components/AddNote";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -40,14 +41,15 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <>
+      <div className="bg-sky-100 h-screen">
         <BrowserRouter>
           <Routes>
-            <Route path="/" exact element={<Beranda notes={this.state.notes} onDelete={this.onDeleteHandler} />} />
-            <Route path="/tambah" exact element={<TambahCatatan addNote={this.onAddNoteHandler} />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/home" exact element={<Notes notes={this.state.notes} onDelete={this.onDeleteHandler} />} />
+            <Route path="/add" exact element={<AddNote addNote={this.onAddNoteHandler} />} />
           </Routes>
         </BrowserRouter>
-      </>
+      </div>
     );
   }
 }

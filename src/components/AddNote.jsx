@@ -1,11 +1,10 @@
 import React from "react";
 import Button from "./Button";
 
-export default class TambahCatatan extends React.Component {
+export default class AddNote extends React.Component {
   constructor(props) {
     super(props);
 
-    // inisialisasi state
     this.state = {
       title: "",
       body: "",
@@ -34,33 +33,36 @@ export default class TambahCatatan extends React.Component {
 
   onSubmitEventHandler(event) {
     event.preventDefault();
+    if(!this.state.title || !this.state.body) return alert("Please fill in the title and description");
     this.props.addNote(this.state);
   }
   render() {
     return (
-      <main className="w-3/5 m-auto mt-12">
-        <h1 className="text-4xl font-bold">Tambah Catatan</h1>
+      <main className="max-w-7xl m-auto pt-12">
+        <h1 className="text-4xl font-bold">Create New Note</h1>
         <form action="" onSubmit={this.onSubmitEventHandler}>
           <input
             type="text"
-            placeholder="masukkan judul"
-            className="border-2 w-full p-2 my-2 text-lg rounded-lg border-black"
+            placeholder="enter title here"
+            className="w-full p-2 my-2 text-lg rounded-lg focus:outline-blue-500"
             value={this.state.title}
             onChange={this.onTitleChangeEventHandler}
           />
           <textarea
             type="text"
-            placeholder="masukkan deskripsi"
-            className="border-2 w-full p-2 my-2 text-lg rounded-lg border-black"
+            placeholder="enter description here"
+            className="w-full p-2 my-2 text-lg rounded-lg focus:outline-blue-500"
             value={this.state.body}
             onChange={this.onBodyChangeEventHandler}
             rows={5}
           />
-          <div className="text-center">
-            <Button color="red" link="/">
-              Batal
+          <div className="flex justify-center gap-4">
+            <Button color="red" link="/home">
+              Cancel
             </Button>
-            <Button color="blue" type="submit" link="/">Tambahkan</Button>
+            <Button color="blue" type="submit" link="/home">
+              Save
+            </Button>
           </div>
         </form>
       </main>
