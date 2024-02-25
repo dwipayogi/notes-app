@@ -24,4 +24,3 @@ npm install
 npx tailwindcss init -p
 npm run dev
 ```
->>>>>>> aea19923f15a089a53f330d6f1bf6c6dd03db60c
